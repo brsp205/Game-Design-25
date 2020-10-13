@@ -29,13 +29,13 @@ public class BasicMovement : MonoBehaviour
             animator.SetInteger("Stopped",0);
         }
 
-        float speed = 8f; // run speed
+        float speed = 16f; // run speed
 
-        Vector3 horizontal  = new Vector3(Input.GetAxis("Horizontal")   , Input.GetAxis("Vertical") , 0.0f);
+        Vector3 horizontal  = new Vector3(Input.GetAxis("Horizontal")   , Input.GetAxis("Vertical") , 0.0f).normalized;
         transform.position  = transform.position + horizontal * Time.deltaTime * speed;
         //Public variable that is visible to other classes. Contains Vector3 format: (x,y,z) of the character in game units
         externpos = transform.position;
-
+        Debug.Log("Input " + Input.GetAxis("Horizontal").ToString("F3"));
         //Get mouseinput in pixels
         Vector3 mouse = Input.mousePosition;
             //Debug.Log("Mouse Input " + mouse.ToString("F3")); //Prints mouse to console 
