@@ -15,7 +15,8 @@ public class BasicMovement : MonoBehaviour
     }
 
     public Animator animator;
-    
+    public Rigidbody2D body;
+
     // Update is called once per frame
     void Update()
     {
@@ -29,10 +30,14 @@ public class BasicMovement : MonoBehaviour
             animator.SetInteger("Stopped",0);
         }
 
-        float speed = 16f; // run speed
 
-        Vector3 horizontal  = new Vector3(Input.GetAxis("Horizontal")   , Input.GetAxis("Vertical") , 0.0f).normalized;
-        transform.position  = transform.position + horizontal * Time.deltaTime * speed;
+    }
+
+    void FixedUpdate () {
+        float speed = 16f;
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal")   , Input.GetAxis("Vertical") , 0.0f).normalized;
+        body.velocity = new Vector2(movement.x*speed,movement.y*speed);
+
         //Public variable that is visible to other classes. Contains Vector3 format: (x,y,z) of the character in game units
         externpos = transform.position;
         Debug.Log("Input " + Input.GetAxis("Horizontal").ToString("F3"));
@@ -50,8 +55,6 @@ public class BasicMovement : MonoBehaviour
             //Debug.Log("rotaZ " + rota.z.ToString("F3"));
             //Debug.Log("rota read " + transform.eulerAngles.ToString("F3"));
         transform.Rotate(0.0f , 0.0f , rota.z-rotb,Space.Self);
-
-
     }
     
 }
