@@ -18,8 +18,8 @@ public class Camera_f : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float magX = 0.5f; 
-        float magY = 0.3f;
+        float magX = 0.4f; 
+        float magY = 0.2f;
         //double length = Math.Sqrt(Math.Pow(transform.position.x-BasicMovement.externpos.x,2)+Math.Pow(transform.position.y-BasicMovement.externpos.y,2));
         
         Vector3 movecam  = new Vector3((BasicMovement.externpos.x-transform.position.x)/magX , (BasicMovement.externpos.y-transform.position.y)/magY , 0.0f);
