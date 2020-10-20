@@ -5,10 +5,13 @@ using UnityEngine;
 public class LEVEL1 : MonoBehaviour
 {
     public static Vector3 Startpos;
+    private Collider2D Coll;
     // Start is called before the first frame update
     void Start()
     {
-    Startpos = transform.position;        
+    Startpos = transform.position;    
+    Coll = GetComponent<Collider2D>();  
+    Coll.enabled = true;
     }
 
     // Update is called once per frame
@@ -19,10 +22,12 @@ public class LEVEL1 : MonoBehaviour
         Vector3 foreground = new Vector3(Startpos.x , Startpos.y , 0.1f);
         Vector3 background = new Vector3(Startpos.x , Startpos.y , 0.11f);
         if (BasicMovement.level == THISLEVELNR && transform.position.z != foreground.z){
-                transform.position = foreground;
+            transform.position = foreground;
+            Coll.enabled = true;
         }
         else if (BasicMovement.level != THISLEVELNR && transform.position.z != background.z){
             transform.position = background;
+            Coll.enabled = false;
         }
 
     }

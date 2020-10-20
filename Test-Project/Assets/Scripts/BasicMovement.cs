@@ -14,7 +14,7 @@ public class BasicMovement : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        level = 2;
+        level = 1;
     }
 
     public Animator animator;
@@ -36,14 +36,14 @@ public class BasicMovement : MonoBehaviour
         //LEVELS
         float Arrtrigger = 1.5f; //proximity trigger distance from characterPos to ArrowPos
         int maxlevel = 3;
-
+        Vector3 TPto = new Vector3(12.5f,-12.7f,0);
         //Arrow down
         double ADlength = Math.Sqrt(Math.Pow(transform.position.x-ArrowDown.Startpos.x,2)+Math.Pow(transform.position.y-ArrowDown.Startpos.y,2));
         ADlength = Convert.ToSingle(ADlength);
         if (ADlength <= Arrtrigger){
             if (level > 1){
                 level = level - 1;
-                transform.position = new Vector3(-19f,-2f,0);
+                transform.position = TPto;
             }
         }
         //Arrow up
@@ -52,7 +52,7 @@ public class BasicMovement : MonoBehaviour
         if (AUlength <= Arrtrigger){
             if (level < maxlevel){
                 level = level + 1;
-                transform.position = new Vector3(-19f,-2f,0);
+                transform.position = TPto;
             }
         }
 
@@ -69,7 +69,6 @@ public class BasicMovement : MonoBehaviour
         float speed = 14f;
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal")   , Input.GetAxis("Vertical") , 0.0f).normalized;
         body.velocity = new Vector2(movement.x*speed,movement.y*speed);
-
         //Public variable that is visible to other classes. Contains Vector3 format: (x,y,z) of the character in game units
         externpos = transform.position;
         //Debug.Log("Input " + Input.GetAxis("Horizontal").ToString("F3"));
