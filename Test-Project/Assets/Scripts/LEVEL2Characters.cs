@@ -19,7 +19,7 @@ public class LEVEL2Characters : MonoBehaviour
     {
         int THISLEVELNR = 2; //this floor
         
-        Vector3 foreground = new Vector3(Startpos.x , Startpos.y , 0.1f);
+        Vector3 foreground = new Vector3(Startpos.x , Startpos.y , 0.095f);
         Vector3 background = new Vector3(Startpos.x , Startpos.y , 0.11f);
         if (BasicMovement.level == THISLEVELNR && transform.position.z != foreground.z){
             transform.position = foreground;
