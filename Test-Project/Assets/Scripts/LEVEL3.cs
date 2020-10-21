@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LEVEL3 : MonoBehaviour
 {
-    public static Vector3 Startpos;
+    private static Vector3 Startpos;
     private Collider2D Coll;
     // Start is called before the first frame update
     void Start()
