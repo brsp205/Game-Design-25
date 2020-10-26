@@ -17,7 +17,7 @@ public class LEVEL3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int THISLEVELNR = 3;
+        int THISLEVELNR = 3; // this floor
 
         Vector3 foreground = new Vector3(Startpos.x , Startpos.y , 0.1f);
         Vector3 background = new Vector3(Startpos.x , Startpos.y , 0.11f);

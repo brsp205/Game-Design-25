@@ -54,19 +54,16 @@ public class BasicMovement : MonoBehaviour
                 level = level + 1;
                 transform.position = TPto;
             }
-        }
-
-        
-
-
-
-        Debug.Log("BM level " + level.ToString("F3"));
+        }       
+        //Debug.Log("BM level " + level.ToString("F3"));
 
 
     }
 
     void FixedUpdate () {
         float speed = 14f;
+        if (CharacterController.cutscene == false){
+
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal")   , Input.GetAxis("Vertical") , 0.0f).normalized;
         body.velocity = new Vector2(movement.x*speed,movement.y*speed);
         //Public variable that is visible to other classes. Contains Vector3 format: (x,y,z) of the character in game units
@@ -87,6 +84,8 @@ public class BasicMovement : MonoBehaviour
             //Debug.Log("rotaZ " + rota.z.ToString("F3"));
             //Debug.Log("rota read " + transform.eulerAngles.ToString("F3"));
         transform.Rotate(0.0f , 0.0f , rota.z-rotb,Space.Self);
+
+        }//endif
     }
     
 }
