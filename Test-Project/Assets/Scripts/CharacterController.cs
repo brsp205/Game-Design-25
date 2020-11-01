@@ -11,6 +11,7 @@ public class CharacterController : MonoBehaviour
     public GameObject Tch;
     public GameObject Tdia;
     string[] Names = {"Barry", "Larry", "Cheryl", "Daffodil","Harry"};
+
     float[] Xch = {7.35f,-19f,21.41f,12.32f,22.33f};
     float[] Ych = {-19.33f,14.69f,3.88f,11.02f,-13.61f};
     int[] LEVELch = {3,2,2,1,1};
@@ -55,7 +56,7 @@ public class CharacterController : MonoBehaviour
                 Tyou.SetActive(true);
                 Tch.SetActive(true);
                 Tdia.SetActive(true);
-
+                
             }
 
         }
